@@ -1,4 +1,4 @@
-# node-whitelist
+# Whitelist
 
 Middlware for [Express](http://expressjs.com/)
 for filters json responses.
