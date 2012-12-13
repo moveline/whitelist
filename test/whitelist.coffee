@@ -47,11 +47,21 @@ describe 'Whitelist', ->
 
   describe '#middlware', ->
     app = express.createServer()
-    app.all '*', Whitelist.middleware('name email'), (req, res, next) ->
+    app.use Whitelist.middleware('name email')
+
+    app.all '/with-status-code', (req, res, next) ->
+      res.json 200, object
+    app.all '*', (req, res, next) ->
       res.json object
 
-    it 'should return only whitelisted properties', (done) ->
-      request(app).get('/').end (err, res) ->
-        res.body.should.eql expected
-        done()
+    describe 'sending only object', ->
+      it 'should return only whitelisted properties', (done) ->
+        request(app).get('/').end (err, res) ->
+          res.body.should.eql expected
+          done()
 
+    describe 'sending status code and object', ->
+      it 'should return only whitelisted properties', (done) ->
+        request(app).get('/with-status-code').end (err, res) ->
+          res.body.should.eql expected
+          done()
