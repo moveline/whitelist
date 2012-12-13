@@ -1,6 +1,6 @@
 {
   "name": "whitelist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Express middleware for filtering json responses",
   "main": "./lib/whitelist.js",
   "devDependencies":{
