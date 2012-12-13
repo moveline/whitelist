@@ -1,4 +1,4 @@
-# Whitelist
+# Whitelist [![Build Status](https://secure.travis-ci.org/Moveline/whitelist.png)](http://travis-ci.org/Moveline/whitelist)
 
 Middlware for [Express](http://expressjs.com/)
 for filters json responses.
